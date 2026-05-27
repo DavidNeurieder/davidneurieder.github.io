@@ -1,10 +1,12 @@
-title: Davids Blog
-description: Keep an eye on my project updates!
-# Build settings
+title: David Neurieder's Blog
+description: A blog by David Neurieder
+url: https://davidneurieder.github.io
+author:
+  name: David Neurieder
 theme: minima
-
-minima:
-  skin: dark
-
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+permalink: /:year/:month/:day/:title/
+show_excerpts: true
+
