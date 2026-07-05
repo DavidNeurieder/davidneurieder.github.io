@@ -1,0 +1,245 @@
+---
+---
+
+$base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$base-font-size: 17px;
+$base-line-height: 1.7;
+$small-font-size: 15px;
+
+$spacing-unit: 30px;
+
+$text-color: #1a1a2e;
+$background-color: #ffffff;
+$brand-color: #2563eb;
+
+$grey-color: #6b7280;
+$grey-color-light: #e5e7eb;
+$grey-color-dark: #374151;
+
+$content-width: 900px;
+
+$on-palm: 600px;
+$on-laptop: 800px;
+
+@import "minima";
+
+/* ── Google Fonts (loaded in head.html) ── */
+
+/* ── Dark mode ── */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #c9d1d9;
+    background-color: #0d1117;
+  }
+
+  a {
+    color: #58a6ff;
+    &:visited { color: #8b949e; }
+    &:hover { color: #c9d1d9; }
+  }
+
+  .site-header {
+    border-top-color: #21262d;
+    border-bottom-color: #21262d;
+  }
+
+  .site-title,
+  .site-title:visited {
+    color: #c9d1d9;
+  }
+
+  .site-nav {
+    background-color: #0d1117;
+    border-color: #30363d;
+    .menu-icon > svg { fill: #c9d1d9; }
+    .page-link { color: #c9d1d9; }
+  }
+
+  .site-footer {
+    border-top-color: #21262d;
+  }
+
+  .footer-col-wrapper {
+    color: #8b949e;
+  }
+
+  .page-link { color: #c9d1d9; }
+
+  .post-meta { color: #8b949e; }
+
+  /* Code blocks */
+  pre, code {
+    border-color: #30363d;
+    background-color: #161b22;
+  }
+
+  code { background-color: #161b22; }
+
+  .highlighter-rouge .highlight {
+    background: #161b22;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    color: #8b949e;
+    border-left-color: #30363d;
+  }
+
+  /* Tables */
+  table {
+    color: #c9d1d9;
+    border-color: #30363d;
+    tr:nth-child(even) { background-color: #161b22; }
+    th {
+      background-color: #21262d;
+      border-color: #30363d;
+    }
+    td { border-color: #30363d; }
+  }
+
+  /* Horizontal rule */
+  hr {
+    border-color: #30363d;
+  }
+
+  /* Syntax highlighting (GitHub Dark) */
+  .highlight { background: #161b22; }
+  .highlight .c  { color: #8b949e; font-style: italic; }
+  .highlight .k  { color: #ff7b72; font-weight: bold; }
+  .highlight .o  { color: #ff7b72; font-weight: bold; }
+  .highlight .cm { color: #8b949e; font-style: italic; }
+  .highlight .cp { color: #8b949e; font-weight: bold; }
+  .highlight .c1 { color: #8b949e; font-style: italic; }
+  .highlight .cs { color: #8b949e; font-weight: bold; font-style: italic; }
+  .highlight .gd { color: #ffa198; background-color: #490202; }
+  .highlight .gd .x { color: #ffa198; background-color: #490202; }
+  .highlight .ge { font-style: italic; }
+  .highlight .gr { color: #ffa198; }
+  .highlight .gh { color: #8b949e; }
+  .highlight .gi { color: #56d364; background-color: #0a5328; }
+  .highlight .gi .x { color: #56d364; background-color: #0a5328; }
+  .highlight .go { color: #8b949e; }
+  .highlight .gp { color: #8b949e; }
+  .highlight .gs { font-weight: bold; }
+  .highlight .gu { color: #8b949e; }
+  .highlight .gt { color: #ff7b72; }
+  .highlight .kc { color: #79c0ff; font-weight: bold; }
+  .highlight .kd { color: #ff7b72; font-weight: bold; }
+  .highlight .kp { color: #79c0ff; font-weight: bold; }
+  .highlight .kr { color: #ff7b72; font-weight: bold; }
+  .highlight .kt { color: #d2a8ff; font-weight: bold; }
+  .highlight .m  { color: #79c0ff; }
+  .highlight .s  { color: #a5d6ff; }
+  .highlight .na { color: #79c0ff; }
+  .highlight .nb { color: #79c0ff; }
+  .highlight .nc { color: #d2a8ff; font-weight: bold; }
+  .highlight .no { color: #79c0ff; }
+  .highlight .ni { color: #ffa657; }
+  .highlight .ne { color: #d2a8ff; font-weight: bold; }
+  .highlight .nf { color: #d2a8ff; font-weight: bold; }
+  .highlight .nn { color: #ff7b72; }
+  .highlight .nt { color: #7ee787; }
+  .highlight .nv { color: #79c0ff; }
+  .highlight .ow { font-weight: bold; }
+  .highlight .w  { color: #6e7681; }
+  .highlight .mf { color: #79c0ff; }
+  .highlight .mh { color: #79c0ff; }
+  .highlight .mi { color: #79c0ff; }
+  .highlight .mo { color: #79c0ff; }
+  .highlight .sb { color: #a5d6ff; }
+  .highlight .sc { color: #a5d6ff; }
+  .highlight .sd { color: #a5d6ff; }
+  .highlight .s2 { color: #a5d6ff; }
+  .highlight .se { color: #a5d6ff; }
+  .highlight .sh { color: #a5d6ff; }
+  .highlight .si { color: #a5d6ff; }
+  .highlight .sx { color: #a5d6ff; }
+  .highlight .sr { color: #56d364; }
+  .highlight .s1 { color: #a5d6ff; }
+  .highlight .ss { color: #79c0ff; }
+  .highlight .bp { color: #8b949e; }
+  .highlight .vc { color: #79c0ff; }
+  .highlight .vg { color: #79c0ff; }
+  .highlight .vi { color: #79c0ff; }
+  .highlight .il { color: #79c0ff; }
+}
+
+/* ── Post categories ── */
+
+.post-categories {
+  margin-bottom: 8px;
+}
+
+.post-category {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-category {
+    background-color: #21262d;
+    color: #58a6ff;
+  }
+}
+
+/* ── Reading time ── */
+
+.reading-time {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+@media (prefers-color-scheme: dark) {
+  .reading-time {
+    color: #8b949e;
+  }
+}
+
+/* ── Post navigation ── */
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #e5e7eb;
+  gap: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-navigation {
+    border-top-color: #21262d;
+  }
+}
+
+.post-navigation a {
+  flex: 1;
+  max-width: 50%;
+}
+
+.post-navigation .prev { text-align: left; }
+.post-navigation .next { text-align: right; }
+
+.post-nav-label {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-nav-label {
+    color: #8b949e;
+  }
+}
+
+.post-nav-title {
+  font-weight: 500;
+}

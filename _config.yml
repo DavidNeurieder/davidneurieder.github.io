@@ -1,12 +1,13 @@
 title: David Neurieder's Blog
 description: A blog by David Neurieder
 url: https://davidneurieder.github.io
-author:
-  name: David Neurieder
+author: David Neurieder
+github_username: DavidNeurieder
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
-
+header_pages:
+  - about.md
