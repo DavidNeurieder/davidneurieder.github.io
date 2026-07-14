@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="category-page">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.category }}</h1>
+    {% assign cat_size = site.categories[page.category] | size %}
+    <p class="post-meta">{{ cat_size }} post{% if cat_size != 1 %}s{% endif %}</p>
+  </header>
+
+  <div class="category-posts">
+    {% for post in site.categories[page.category] %}
+    <div class="category-post">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+        <span class="reading-time">&middot; {% include reading_time.html content=post.content %}</span>
+      </p>
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</article>

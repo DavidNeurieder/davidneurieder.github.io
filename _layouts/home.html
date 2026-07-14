@@ -14,7 +14,7 @@ layout: default
     {% if post.categories %}
     <p class="post-categories">
       {% for category in post.categories %}
-      <span class="post-category">{{ category }}</span>
+      <a href="{{ category | replace: ' ', '-' | downcase | prepend: '/categories/' | append: '/' | relative_url }}" class="post-category">{{ category }}</a>
       {% endfor %}
     </p>
     {% endif %}
