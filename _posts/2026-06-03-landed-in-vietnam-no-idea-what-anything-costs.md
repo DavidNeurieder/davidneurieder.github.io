@@ -2,8 +2,8 @@
 layout: post
 title: "Landed in Vietnam and Had No Idea What Anything Costs"
 date: 2026-06-03 08:00:00 +0200
-categories: [travel, android]
-tags: [vietnam, travel, currency-converter, offline, open-source]
+categories: [travel, android, offline currency converter]
+tags: [vietnam, travel, currency-converter, offline, open-source, offline currency converter]
 ---
 
 I landed in Saigon at 7AM. Jet-lagged. Disoriented. No mobile internet — I refuse to pay 10€ a day for roaming and the airport WiFi required a Vietnamese phone number to log in. Couldn't check Google, couldn't check Maps, couldn't do anything.

@@ -165,6 +165,15 @@ $on-laptop: 800px;
   .highlight .il { color: #79c0ff; }
 }
 
+/* ── Post screenshots ── */
+
+.post-content img {
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 16px auto;
+}
+
 /* ── Post categories ── */
 
 .post-categories {
