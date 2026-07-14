@@ -23,6 +23,19 @@
     return text.replace(re, "<mark>$1</mark>");
   }
 
+  function snippet(content, query, len) {
+    if (!content || !query) return "";
+    const lower = content.toLowerCase();
+    const pos = lower.indexOf(query.toLowerCase().trim());
+    if (pos === -1) return content.substring(0, len);
+    const start = Math.max(0, pos - 40);
+    const end = Math.min(content.length, pos + query.length + len - 40);
+    var text = content.substring(start, end);
+    if (start > 0) text = "\u2026" + text;
+    if (end < content.length) text = text + "\u2026";
+    return text;
+  }
+
   function search(query) {
     const q = query.toLowerCase().trim();
     if (!q) {
@@ -32,7 +45,7 @@
 
     const words = q.split(/\s+/);
     const matched = posts.filter(function (post) {
-      const haystack = (post.title + " " + post.excerpt + " " + post.categories.join(" ")).toLowerCase();
+      const haystack = (post.title + " " + post.excerpt + " " + post.content + " " + post.categories.join(" ")).toLowerCase();
       return words.every(function (w) { return haystack.indexOf(w) !== -1; });
     });
 
@@ -50,7 +63,7 @@
         html += ' &middot; ' + post.categories.join(", ");
       }
       html += '</span>';
-      html += '<span class="search-result-excerpt">' + highlight(post.excerpt, query) + '</span>';
+      html += '<span class="search-result-excerpt">' + highlight(snippet(post.content, query, 120), query) + '</span>';
       html += '</a>';
     });
 
