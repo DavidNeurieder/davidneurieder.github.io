@@ -1,12 +1,19 @@
 title: David Neurieder's Blog
-description: A blog by David Neurieder
+description: Android development, privacy, open source, and offline-first architecture
 url: https://davidneurieder.github.io
 author: David Neurieder
 github_username: DavidNeurieder
+lang: en
+logo: /assets/images/posts/placeholder.svg
+social:
+  name: David Neurieder
+  links:
+    - https://github.com/DavidNeurieder
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
 header_pages:

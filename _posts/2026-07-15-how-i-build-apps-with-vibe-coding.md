@@ -4,6 +4,8 @@ title: "How I Build Apps With Vibe Coding"
 date: 2026-07-15
 categories: [android, opensource, ai]
 tags: [android, vibe-coding, opencode, ai, open-source]
+description: "I built two Android apps using OpenCode, an open source AI coding agent. Here's how vibe coding works in practice and where it breaks down."
+image: /assets/images/posts/vibe-coding.svg
 ---
 
 I built two Android apps in the last few months — [Offline Currency Converter](https://github.com/DavidNeurieder/offline-currency-converter) and [Activity Trace](https://github.com/DavidNeurieder/ActivityTrace). Both are on F-Droid. Both work offline. Both are small, focused, and do one thing well.
