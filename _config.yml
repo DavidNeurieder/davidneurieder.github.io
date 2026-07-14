@@ -10,4 +10,5 @@ plugins:
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
 header_pages:
+  - categories/index.md
   - about.md

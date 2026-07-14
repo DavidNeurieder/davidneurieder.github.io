@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="category-page">
+  <header class="post-header">
+    <h1 class="post-title">Categories</h1>
+  </header>
+
+  <div class="category-posts">
+    {% assign sorted_categories = site.categories | sort %}
+    {% for cat in sorted_categories %}
+    {% assign category_name = cat[0] %}
+    {% assign posts = cat[1] %}
+    <div class="category-post">
+      <h2><a href="{{ category_name | replace: ' ', '-' | downcase | prepend: '/categories/' | append: '/' | relative_url }}">{{ category_name }}</a></h2>
+      <p class="post-meta">{{ posts | size }} post{% if posts.size != 1 %}s{% endif %}</p>
+    </div>
+    {% endfor %}
+  </div>
+</article>
