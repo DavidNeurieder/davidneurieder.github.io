@@ -18,6 +18,10 @@ layout: default
     {% endif %}
   </header>
 
+  {% if page.image %}
+  <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-image" />
+  {% endif %}
+
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
