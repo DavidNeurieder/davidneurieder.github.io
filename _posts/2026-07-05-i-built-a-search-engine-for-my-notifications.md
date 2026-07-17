@@ -2,7 +2,7 @@
 layout: post
 title: "I Built a Search Engine for My Notifications"
 date: 2026-07-05
-categories: [android, opensource, privacy]
+categories: [android, opensource, privacy, activity-trace]
 tags: [android, opensource, privacy, notifications, search, open-source]
 description: "Android's notification history stores 50 entries with no search. I built Activity Trace to capture notifications, screen content, and files into one encrypted database."
 image: /assets/images/posts/search-engine.svg
