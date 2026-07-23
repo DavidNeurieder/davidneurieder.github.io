@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fixing exports, adding statistics, and closing the testing gap"
-date: 2026-07-17
+date: 2026-07-23
 categories: [android, opensource, testing, activity-trace]
 tags: [android, open-source, testing, compose, fdroid, activity-trace, sqlcipher]
 description: "What started as a bug hunt for silent export failures turned into a statistics screen overhaul, system app blocking, and 44 new tests for Activity Trace."
