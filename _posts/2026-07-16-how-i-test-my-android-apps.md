@@ -4,6 +4,8 @@ title: "How to Test Your Android Apps"
 date: 2026-07-16
 categories: [android, opensource, testing]
 tags: [android, testing, junit, compose, opencode, open-source]
+description: "A practical guide to testing Android apps: unit tests, instrumented tests, lint, and using AI to generate test cases. With code examples."
+image: /assets/images/posts/testing.svg
 ---
 
 Testing Android apps is tedious. You write a function, then you write code to verify the function works, then you run it on a device to make sure the code that verifies the function also works. It's turtles all the way down.

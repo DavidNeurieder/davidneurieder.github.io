@@ -202,6 +202,15 @@ $on-laptop: 800px;
   mark { background-color: rgba(#58a6ff, 0.2); }
 }
 
+/* ── Post image ── */
+
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
 /* ── Post screenshots ── */
 
 .post-content img {

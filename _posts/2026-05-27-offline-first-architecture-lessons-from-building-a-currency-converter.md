@@ -4,6 +4,8 @@ title: "Why I Built a Currency Converter That Works Without Internet"
 date: 2026-05-27 10:00:00 +0200
 categories: [android, travel, offline currency converter]
 tags: [android, travel, offline, currency-converter, real-world, offline currency converter]
+description: "I travel a lot and every trip the same thing happens: I need a currency converter and it needs internet. So I built one that works offline."
+image: /assets/images/posts/currency-converter.svg
 ---
 
 I travel a lot. And every trip, the same thing happens: I land somewhere, turn off airplane mode, and... nothing. No signal. No roaming. No data.
