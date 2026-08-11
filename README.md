@@ -4,6 +4,7 @@ Personal blog built with Jekyll and the Minima theme, hosted on GitHub Pages.
 
 ## Posts
 
+- [LibreCrate: The Encrypted Document Vault That Runs Everywhere](https://davidneurieder.github.io/2026/08/11/librecrate-encrypted-document-vault/)
 - [How to Test Your Android Apps](https://davidneurieder.github.io/2026/07/16/how-i-test-my-android-apps/)
 - [How I Build Apps With Vibe Coding](https://davidneurieder.github.io/2026/07/15/how-i-build-apps-with-vibe-coding/)
 - [I Added Charts, a Widget, and Favorites](https://davidneurieder.github.io/2026/07/14/i-added-charts-a-widget-and-favorites/)
