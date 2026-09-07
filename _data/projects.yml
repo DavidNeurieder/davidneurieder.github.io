@@ -1,0 +1,26 @@
+- name: Causelog
+  blurb: An engineering memory system for preserving decisions, experiments, and the reasoning behind them.
+  repo: https://github.com/DavidNeurieder/causelog
+  posts:
+    - causelog-self-hosted-engineering-decision-memory
+
+- name: Activity Trace
+  blurb: Search your Android notifications, screen content, and files locally.
+  repo: https://github.com/DavidNeurieder/ActivityTrace
+  posts:
+    - i-built-a-search-engine-for-my-notifications
+    - fixing-exports-and-adding-statistics-to-activity-trace
+    - i-added-charts-a-widget-and-favorites
+
+- name: Forgepost
+  blurb: A self-hosted blogging platform that lets you experiment with your own content.
+  repo: https://github.com/DavidNeurieder/Forgepost
+  posts:
+    - forgepost-self-hosted-block-experiments
+    - forgepost-0.2.0-video-embeds-zipped-backups-and-an-attribution-firewall
+
+- name: LibreCrate
+  blurb: An encrypted document vault designed to work across devices.
+  repo: https://github.com/DavidNeurieder/LibreCrate
+  posts:
+    - librecrate-encrypted-document-vault

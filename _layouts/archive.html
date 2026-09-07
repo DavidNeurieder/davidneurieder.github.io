@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{% for post in site.posts %}
+  <article class="category-post archive-post">
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p class="post-meta">
+      {{ post.date | date_to_string }}
+      <span class="reading-time">&middot; {% include reading_time.html content=post.content %}</span>
+    </p>
+    {% if post.categories %}
+    <p class="post-categories">
+      {% for category in post.categories %}
+      <a href="{{ category | replace: ' ', '-' | downcase | prepend: '/categories/' | append: '/' | relative_url }}" class="post-category">{{ category }}</a>
+      {% endfor %}
+    </p>
+    {% endif %}
+  </article>
+{% endfor %}

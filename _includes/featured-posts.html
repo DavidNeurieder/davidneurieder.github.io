@@ -1,0 +1,24 @@
+<section class="home-section home-featured" id="start-here">
+  <h2 class="home-section-title">New here? Start with these</h2>
+  <div class="home-post-list">
+    {% for slug in site.featured_posts %}
+      {% assign post = site.posts | where_exp: "p", "p.slug == slug" | first %}
+      {% if post %}
+      <article class="home-post home-featured-post">
+        <h3 class="home-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="home-post-meta">
+          {{ post.date | date_to_string }}
+          <span class="reading-time">&middot; {% include reading_time.html content=post.content %}</span>
+        </p>
+        {% if post.categories %}
+        <p class="post-categories">
+          {% for category in post.categories %}
+          <a href="{{ category | replace: ' ', '-' | downcase | prepend: '/categories/' | append: '/' | relative_url }}" class="post-category">{{ category }}</a>
+          {% endfor %}
+        </p>
+        {% endif %}
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

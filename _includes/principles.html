@@ -1,0 +1,11 @@
+<section class="home-section home-principles" id="principles">
+  <h2 class="home-section-title">Software should work for you</h2>
+  <div class="home-principles-row">
+    {% for principle in site.data.principles %}
+    <div class="home-principle">
+      <h3>{{ principle.title }}</h3>
+      <p>{{ principle.blurb }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>

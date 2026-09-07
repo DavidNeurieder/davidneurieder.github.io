@@ -1,22 +1,21 @@
 ---
 layout: default
 ---
-<p>{{ site.description }}</p>
+{%- include hero.html -%}
 
-{% for post in site.posts %}
-  <article>
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p class="meta">
-      {{ post.date | date_to_string }}
-      <span class="reading-time">&middot; {% include reading_time.html content=post.content %}</span>
-    </p>
-    {% if post.categories %}
-    <p class="post-categories">
-      {% for category in post.categories %}
-      <a href="{{ category | replace: ' ', '-' | downcase | prepend: '/categories/' | append: '/' | relative_url }}" class="post-category">{{ category }}</a>
-      {% endfor %}
-    </p>
-    {% endif %}
-    {{ post.excerpt }}
-  </article>
-{% endfor %}
+<section class="home-section home-projects" id="projects">
+  <h2 class="home-section-title">Currently building</h2>
+  <div class="home-project-grid">
+    {%- for project in site.data.projects -%}
+      {%- include project-card.html -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{%- include principles.html -%}
+
+{%- include featured-posts.html -%}
+
+{%- include latest-writing.html -%}
+
+{%- include about-block.html -%}

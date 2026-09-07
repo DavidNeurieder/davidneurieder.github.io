@@ -422,3 +422,318 @@ mark {
 .post-nav-title {
   font-weight: 500;
 }
+
+/* ── Homepage: hero ── */
+
+.home-hero {
+  padding: 48px 0 16px;
+}
+
+.home-hero-title {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.home-hero-sub {
+  margin: 0 0 24px;
+  font-size: 18px;
+  color: $grey-color;
+  max-width: 560px;
+}
+
+.home-hero-actions {
+  margin: 0 0 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+
+  &:visited { text-decoration: none; }
+}
+
+.home-btn-primary {
+  background-color: $brand-color;
+  color: #ffffff;
+
+  &:hover { background-color: darken($brand-color, 8%); }
+  &:visited { color: #ffffff; }
+}
+
+.home-btn-secondary {
+  border: 1px solid $grey-color-light;
+  color: $text-color;
+
+  &:hover { border-color: $brand-color; color: $brand-color; }
+  &:visited { color: $text-color; }
+}
+
+.home-hero-chips {
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.home-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-chip {
+    background-color: #21262d;
+    color: #58a6ff;
+  }
+}
+
+/* ── Homepage: sections ── */
+
+.home-section {
+  margin-top: 56px;
+}
+
+.home-section-title {
+  margin: 0 0 20px;
+  font-size: 22px;
+}
+
+.home-section-more {
+  margin-top: 20px;
+}
+
+.home-section-more a {
+  font-weight: 500;
+  text-decoration: none;
+  color: $brand-color;
+
+  &:hover { text-decoration: underline; }
+  &:visited { color: inherit; }
+}
+
+/* ── Homepage: project cards ── */
+
+.home-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.home-project-card {
+  border: 1px solid $grey-color-light;
+  border-radius: 10px;
+  padding: 20px;
+  background: $background-color;
+}
+
+.home-project-name {
+  margin: 0 0 8px;
+  font-size: 18px;
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+
+    &:hover { color: $brand-color; }
+  }
+}
+
+.home-project-blurb {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: $grey-color-dark;
+  line-height: 1.5;
+}
+
+.home-project-links {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.home-project-post {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #e5e7eb;
+  color: #374151;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #d1d5db;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-project-card {
+    border-color: #30363d;
+    background: #0d1117;
+  }
+
+  .home-project-name a {
+    color: #c9d1d9;
+
+    &:hover { color: #58a6ff; }
+  }
+
+  .home-project-blurb {
+    color: #8b949e;
+  }
+
+  .home-project-post {
+    background-color: #21262d;
+    color: #58a6ff;
+
+    &:hover {
+      background-color: #30363d;
+    }
+  }
+}
+
+/* ── Homepage: principles ── */
+
+.home-principles-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.home-principle {
+  border-left: 3px solid $brand-color;
+  padding: 4px 0 4px 16px;
+
+  h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    color: $grey-color;
+    line-height: 1.5;
+  }
+}
+
+/* ── Homepage: post lists ── */
+
+.home-post-list {
+  display: grid;
+  gap: 24px;
+}
+
+.home-post {
+  border-bottom: 1px solid $grey-color-light;
+  padding-bottom: 20px;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .home-post-title {
+    margin: 0 0 6px;
+    font-size: 19px;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+
+      &:hover { color: $brand-color; }
+    }
+  }
+
+  .home-post-meta {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: $grey-color;
+  }
+
+  .home-post-excerpt {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: $grey-color;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-post {
+    border-bottom-color: #21262d;
+
+    .home-post-title a {
+      color: #c9d1d9;
+
+      &:hover { color: #58a6ff; }
+    }
+
+    .home-post-excerpt {
+      color: #8b949e;
+    }
+  }
+}
+
+/* ── Homepage: about block ── */
+
+.home-about {
+  border-top: 1px solid $grey-color-light;
+  padding-top: 28px;
+  color: $grey-color-dark;
+  font-size: 15px;
+}
+
+.home-about-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  font-weight: 500;
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+    &:visited { color: inherit; }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-about {
+    border-top-color: #21262d;
+    color: #8b949e;
+  }
+}
+
+/* ── Archive page ── */
+
+.archive-post {
+  border-bottom: 1px solid $grey-color-light;
+  padding-bottom: 20px;
+
+  h2 {
+    margin: 0 0 6px;
+    font-size: 19px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .archive-post {
+    border-bottom-color: #21262d;
+  }
+}
