@@ -5,7 +5,7 @@ date: 2026-08-14
 categories: [opensource]
 tags: [opensource, rust, self-hosting, blogging, bayesian, sqlite, axum, agpl]
 description: "Forgepost is a self-hosted blogging engine built around publish → measure → experiment → improve. Every headline, paragraph, image, and call-to-action is a testable block, and a Bayesian engine decides when a variant wins."
-image: /assets/images/posts/forgepost.svg
+image: /assets/images/posts/forgepost1.png
 ---
 
 The big platforms shape your writing. Medium tells you which posts land. Substack tells you who finishes reading. A/B testing is how every serious growth team ships copy — but as a solo blogger you get none of that. Your analytics tool gives you pageviews; it doesn't tell you whether the new headline actually beats the old one, and even if it did, you'd never own the data or the tooling behind it.
