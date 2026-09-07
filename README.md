@@ -4,6 +4,7 @@ Personal blog built with Jekyll and the Minima theme, hosted on GitHub Pages.
 
 ## Posts
 
+- [Causelog: A Self-Hosted Memory for Engineering Decisions](https://davidneurieder.github.io/2026/09/07/causelog-self-hosted-engineering-decision-memory/)
 - [Forgepost 0.2.0: Video Embeds, Zipped Backups, and an Attribution Firewall](https://davidneurieder.github.io/2026/08/29/forgepost-0.2.0-video-embeds-zipped-backups-and-an-attribution-firewall/)
 - [Forgepost: A Self-Hosted Blog Engine That Runs Experiments on Its Own Content](https://davidneurieder.github.io/2026/08/14/forgepost-self-hosted-block-experiments/)
 - [LibreCrate: The Encrypted Document Vault That Runs Everywhere](https://davidneurieder.github.io/2026/08/11/librecrate-encrypted-document-vault/)
