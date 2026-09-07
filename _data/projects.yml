@@ -1,3 +1,9 @@
+- name: Offline Currency Converter
+  blurb: A 3 MB currency converter that works without internet, with cached and hardcoded fallback rates.
+  repo: https://github.com/DavidNeurieder/offline-currency-converter
+  posts:
+    - offline-first-architecture-lessons-from-building-a-currency-converter
+
 - name: Causelog
   blurb: An engineering memory system for preserving decisions, experiments, and the reasoning behind them.
   repo: https://github.com/DavidNeurieder/causelog
