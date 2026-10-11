@@ -215,7 +215,7 @@ $on-laptop: 800px;
 
 .post-row {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 16px;
   align-items: start;
 }
@@ -226,7 +226,7 @@ $on-laptop: 800px;
 }
 
 .post-thumb {
-  width: 120px;
+  width: 180px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 8px;
@@ -781,5 +781,42 @@ mark {
 @media (prefers-color-scheme: dark) {
   .archive-post {
     border-bottom-color: #21262d;
+  }
+}
+
+/* ── Dark mode: headings & actionable elements ── */
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6,
+  .post-title,
+  .post-header h1,
+  .home-hero-title,
+  .home-section-title,
+  .home-post-title,
+  .home-project-name,
+  .home-principle h3 {
+    color: #c9d1d9;
+  }
+
+  .home-btn-secondary {
+    border-color: #30363d;
+    color: #c9d1d9;
+
+    &:hover { border-color: #58a6ff; color: #58a6ff; }
+    &:visited { color: #c9d1d9; }
+  }
+
+  .home-post-meta {
+    color: #8b949e;
+  }
+
+  .archive-post h2 {
+    color: #c9d1d9;
+  }
+
+  .archive-post h2 a {
+    color: #c9d1d9;
+
+    &:hover, &:visited { color: #58a6ff; }
   }
 }
