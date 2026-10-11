@@ -211,6 +211,52 @@ $on-laptop: 800px;
   margin-bottom: 24px;
 }
 
+/* ── Post thumbnails (listings) ── */
+
+.post-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.post-thumb-link {
+  display: block;
+  line-height: 0;
+}
+
+.post-thumb {
+  width: 120px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid $grey-color-light;
+  background-color: #f3f4f6;
+}
+
+.post-thumb-link:hover .post-thumb {
+  border-color: $brand-color;
+}
+
+@media (max-width: $on-palm) {
+  .post-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .post-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-thumb {
+    border-color: #30363d;
+    background-color: #161b22;
+  }
+}
+
 /* ── Post screenshots ── */
 
 .post-content img {
