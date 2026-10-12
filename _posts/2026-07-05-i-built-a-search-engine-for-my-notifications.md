@@ -5,7 +5,7 @@ date: 2026-07-05
 categories: [android, opensource, privacy, activity-trace]
 tags: [android, opensource, privacy, notifications, search, open-source]
 description: "Android's notification history stores 50 entries with no search. I built Activity Trace to capture notifications, screen content, and files into one encrypted database."
-image: /assets/images/posts/search-engine.svg
+image: /assets/images/posts/jungle.jpg
 ---
 
 You know that feeling when you *know* you saw something in a notification — a confirmation code, a link, a message — but it's gone. You scroll through notification history, find it capped at 50 entries, not searchable, and destined to be wiped on the next reboot.

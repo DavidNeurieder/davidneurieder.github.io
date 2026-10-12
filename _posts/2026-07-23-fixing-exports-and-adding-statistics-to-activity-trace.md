@@ -5,7 +5,7 @@ date: 2026-07-23
 categories: [android, opensource, testing, activity-trace]
 tags: [android, open-source, testing, compose, fdroid, activity-trace, sqlcipher]
 description: "What started as a bug hunt for silent export failures turned into a statistics screen overhaul, system app blocking, and 44 new tests for Activity Trace."
-image: /assets/images/posts/activity-trace-stats.svg
+image: /assets/images/posts/beach.jpg
 ---
 
 The export returned `true`. The app showed "Export complete." But the file didn't exist.

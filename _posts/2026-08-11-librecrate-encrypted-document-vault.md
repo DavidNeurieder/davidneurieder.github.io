@@ -5,7 +5,7 @@ date: 2026-08-11
 categories: [librecrate, android, opensource, privacy]
 tags: [librecrate, android, opensource, privacy, rust, encryption, offline, uniffi, iced]
 description: "LibreCrate is my encrypted, offline-first document vault for Android, Linux, macOS, and Windows — one Rust core powering three frontends, with full-text search and cross-platform merge backups."
-image: /assets/images/posts/librecrate.svg
+image: /assets/images/posts/water.jpg
 ---
 
 A few months ago I found myself with the same problem in two places at once. On my phone I had PDFs, receipts, and comics scattered across apps and download folders. On my laptop I had the same kinds of files in a different mess. And the stuff I actually cared about — medical records, boarding passes, personal notes — I didn't really want sitting in a folder that any other app could read.

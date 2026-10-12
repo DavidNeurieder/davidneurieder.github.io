@@ -5,11 +5,8 @@ date: 2026-10-07
 categories: [librecrate, fdroid, android, privacy]
 tags: [librecrate, fdroid, android, privacy, encryption, offline, opensource]
 description: "LibreCrate, my privacy-first encrypted document vault, is now on F-Droid. This is the story behind the app where my boarding passes, PDFs, receipts, and notes live safely on my own device."
-image: /assets/images/posts/librecrate.svg
+image: /assets/images/posts/beach2.jpg
 ---
-
-
-<img src="/assets/images/posts/librecrate-screenshots/1.png" width="180" alt="LibreCrate screenshot 1">
 
 I opened the F-Droid app the other day, typed "LibreCrate", and my own app popped up with that green badge. It's available to install for anyone. That feeling — the one where you've built something for yourself and the world can just… get it — never gets old.
 

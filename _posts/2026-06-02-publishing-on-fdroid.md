@@ -5,7 +5,7 @@ date: 2026-06-02
 categories: [android, fdroid, reproducible-builds, offline currency converter]
 tags: [android, fdroid, reproducible-builds, open-source, gpl, offline currency converter]
 description: "My app Offline Currency Converter is now on F-Droid. Here's how I got through reproducible builds, metadata mistakes, and the build farm."
-image: /assets/images/posts/fdroid.svg
+image: /assets/images/posts/lake.jpg
 ---
 
 🎉 It's live! My app — **Offline Currency Converter** — is now on

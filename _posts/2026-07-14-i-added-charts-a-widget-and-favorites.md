@@ -5,7 +5,7 @@ date: 2026-07-14
 categories: [android, opensource, privacy, offline currency converter]
 tags: [android, currency-converter, offline, compose, widget, material-you, offline currency converter]
 description: "Offline Currency Converter v0.4.0 adds favorites, rate trend charts with Compose Canvas, a Material You home screen widget, and smarter sync."
-image: /assets/images/posts/charts-widget.svg
+image: /assets/images/posts/river.jpg
 ---
 
 Offline Currency Converter started as a minimal tool: open it, pick two currencies, type a number, get a conversion. That's it. No accounts, no ads, no internet required.
