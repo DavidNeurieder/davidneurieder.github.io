@@ -24,6 +24,17 @@ bundle install
 # or: bundle exec jekyll serve --host=0.0.0.0
 ```
 
+## Scripts
+
+- `scripts/generate-categories.sh` – create category pages for categories used in posts.
+- `scripts/optimize-images.sh` – resize and compress post images before committing
+  (default longest edge 1600px; images already within the limit are skipped).
+
+  ```sh
+  ./scripts/optimize-images.sh                                # all of assets/images/posts
+  MAX_EDGE=720 ./scripts/optimize-images.sh assets/images/posts/screens
+  ```
+
 ## License
 
 Content &copy; 2026 David Neurieder. All rights reserved.
