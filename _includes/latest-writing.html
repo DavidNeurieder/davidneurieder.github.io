@@ -1,7 +1,16 @@
 <section class="home-section home-latest" id="latest">
   <h2 class="home-section-title">Latest writing</h2>
   <div class="home-post-list">
-    {% for post in site.posts limit:5 %}
+    {%- comment -%}
+      Newest posts, skipping the ones already shown in "Start with these"
+      above so no article is listed twice on the homepage.
+    {%- endcomment -%}
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+    {% assign is_featured = false %}
+    {% if site.featured_posts contains post.slug %}{% assign is_featured = true %}{% endif %}
+    {% if shown < 5 and is_featured == false %}
+    {% assign shown = shown | plus: 1 %}
     <article class="home-post post-row">
       {% include post-thumbnail.html post=post %}
       <div class="post-row-body">
@@ -20,6 +29,7 @@
         <p class="home-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
       </div>
     </article>
+    {% endif %}
     {% endfor %}
   </div>
   <p class="home-section-more">
