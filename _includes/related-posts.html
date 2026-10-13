@@ -1,0 +1,35 @@
+{%- comment -%}
+  Deterministic related posts: the most recent other posts that share at
+  least one category with the current post. No plugins or JavaScript.
+{%- endcomment -%}
+{%- assign related_total = 0 -%}
+{%- for post in site.posts -%}
+  {%- if post.url != page.url -%}
+    {%- assign is_related = false -%}
+    {%- for cat in post.categories -%}
+      {%- if page.categories contains cat -%}{%- assign is_related = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if is_related -%}{%- assign related_total = related_total | plus: 1 -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if related_total > 0 -%}
+<aside class="related-posts" aria-label="Related posts">
+  <h2 class="related-posts-title">Related posts</h2>
+  <ul class="related-posts-list">
+    {%- assign related_shown = 0 -%}
+    {%- for post in site.posts -%}
+      {%- if related_shown < 3 and post.url != page.url -%}
+        {%- assign is_related = false -%}
+        {%- for cat in post.categories -%}
+          {%- if page.categories contains cat -%}{%- assign is_related = true -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if is_related -%}
+          {%- assign related_shown = related_shown | plus: 1 -%}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</aside>
+{%- endif -%}
