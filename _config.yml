@@ -16,6 +16,16 @@ plugins:
   - jekyll-sitemap
 permalink: /:year/:month/:day/:title/
 show_excerpts: true
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - start_jekyll_server.sh
+  - scripts/
+  - ideas/
+  - opencode.txt
+  - vendor/
+  - node_modules/
 header_pages:
   - categories/index.md
   - archive.md
