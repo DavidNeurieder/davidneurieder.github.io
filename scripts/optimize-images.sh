@@ -1,16 +1,32 @@
 #!/bin/bash
-# Optimize blog images: resize to a maximum edge length and recompress.
-# Images already within the size limit are left untouched, so re-running is a
-# no-op (and avoids re-encoding/quality loss). A file is only overwritten when
-# the optimized version is actually smaller.
+# Optimize blog images: resize to a maximum edge length, recompress, and
+# generate small thumbnails for post listings.
+#
+# Usage:
+#   scripts/optimize-images.sh [path ...]
+#
+#   path         Files or directories to resize. Directories are searched
+#                recursively. Defaults to assets/images/posts.
+#
+# Environment overrides:
+#   MAX_EDGE      Longest edge for full-size images (default 1600)
+#   THUMB_EDGE    Longest edge for listing thumbnails (default 720)
+#   JPG_QUALITY   JPEG quality 1-100 (default 80)
+#   PNG_QUALITY   PNG compression 1-100 (default 90)
+#
+# Thumbnails are written as "<name>-thumb.<ext>" next to every image used as a
+# post cover (the `image:` front matter) or the site logo, and are referenced
+# by _includes/post-thumbnail.html. Full-size images already within MAX_EDGE
+# are left untouched, so re-running is a no-op.
+#
+# Run this after adding a new post image, before committing.
 
 set -euo pipefail
 
 BLOG_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-# Longest allowed edge, in pixels, and encoder quality. Override via env:
-#   MAX_EDGE=720 JPG_QUALITY=75 ./scripts/optimize-images.sh assets/images/posts/screens
 MAX_EDGE="${MAX_EDGE:-1600}"
+THUMB_EDGE="${THUMB_EDGE:-720}"
 JPG_QUALITY="${JPG_QUALITY:-80}"
 PNG_QUALITY="${PNG_QUALITY:-90}"
 
@@ -24,34 +40,55 @@ else
   exit 1
 fi
 
-# Default to the post images directory when no paths are given.
+size_of() { stat -c %s "$1" 2>/dev/null || stat -f %z "$1"; }
+
+# Longest edge of an image (0 if it cannot be read).
+long_edge_of() {
+  identify -format '%[fx:max(w,h)]' "$1" 2>/dev/null \
+    || magick identify -format '%[fx:max(w,h)]' "$1" 2>/dev/null \
+    || echo 0
+}
+
+# "jpg" | "png" | "" for a file path.
+format_of() {
+  case "$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')" in
+    *.jpg|*.jpeg) echo jpg ;;
+    *.png) echo png ;;
+    *) echo "" ;;
+  esac
+}
+
+# resize_and_recompress <src> <dst> <fmt> <edge>
+resize_and_recompress() {
+  if [ "$3" = "jpg" ]; then
+    $IM "$1" -auto-orient -strip -sampling-factor 4:2:0 -interlace Plane \
+      -resize "${4}x${4}>" -quality "$JPG_QUALITY" "$2"
+  else
+    $IM "$1" -auto-orient -strip \
+      -resize "${4}x${4}>" -quality "$PNG_QUALITY" "$2"
+  fi
+}
+
+# ── Resize oversized images in the requested paths ──
+
 paths=("$@")
 if [ ${#paths[@]} -eq 0 ]; then
   paths=("$BLOG_DIR/assets/images/posts")
 fi
 
-# Expand directories to the image files they contain (recursively).
 files=()
 for p in "${paths[@]}"; do
   if [ -d "$p" ]; then
     while IFS= read -r -d '' f; do
       files+=("$f")
-    done < <(find "$p" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0)
+    done < <(find "$p" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) \
+               -not -name '*-thumb.*' -print0)
   elif [ -f "$p" ]; then
     files+=("$p")
   else
     echo "Skipping (not found): $p" >&2
   fi
 done
-
-if [ ${#files[@]} -eq 0 ]; then
-  echo "No images found."
-  exit 0
-fi
-
-size_of() {
-  stat -c %s "$1" 2>/dev/null || stat -f %z "$1"
-}
 
 before_total=0
 after_total=0
@@ -61,56 +98,79 @@ for f in "${files[@]}"; do
   before=$(size_of "$f")
   before_total=$((before_total + before))
 
-  # Longest edge of the image (0 if it can't be read).
-  long_edge=$(identify -format '%[fx:max(w,h)]' "$f" 2>/dev/null \
-    || magick identify -format '%[fx:max(w,h)]' "$f" 2>/dev/null \
-    || echo 0)
-
-  # Already within the limit -> nothing to do (keeps re-runs harmless).
+  long_edge=$(long_edge_of "$f")
   if [ "${long_edge%.*}" -le "$MAX_EDGE" ] 2>/dev/null; then
     after_total=$((after_total + before))
     continue
   fi
 
-  ext="png"
-  case "$(printf '%s' "$f" | tr '[:upper:]' '[:lower:]')" in
-    *.jpg|*.jpeg) ext="jpg" ;;
-  esac
+  fmt="$(format_of "$f")"
+  [ -n "$fmt" ] || { after_total=$((after_total + before)); continue; }
 
-  tmp="$(mktemp)"
-  out="$tmp.$ext"
-
-  if [ "$ext" = "jpg" ]; then
-    if ! $IM "$f" -auto-orient -strip -sampling-factor 4:2:0 -interlace Plane \
-        -resize "${MAX_EDGE}x${MAX_EDGE}>" -quality "$JPG_QUALITY" "$out" 2>/dev/null; then
-      rm -f "$tmp" "$out"
-      echo "  skipped (decode failed): $f" >&2
-      after_total=$((after_total + before))
-      continue
-    fi
-  else
-    if ! $IM "$f" -auto-orient -strip \
-        -resize "${MAX_EDGE}x${MAX_EDGE}>" -quality "$PNG_QUALITY" "$out" 2>/dev/null; then
-      rm -f "$tmp" "$out"
-      echo "  skipped (decode failed): $f" >&2
-      after_total=$((after_total + before))
-      continue
-    fi
+  out="$(mktemp).$fmt"
+  if ! resize_and_recompress "$f" "$out" "$fmt" "$MAX_EDGE" 2>/dev/null; then
+    rm -f "$out"
+    echo "  skipped (decode failed): $f" >&2
+    after_total=$((after_total + before))
+    continue
   fi
 
   after=$(size_of "$out")
   if [ "$after" -lt "$before" ]; then
     mv "$out" "$f"
-    printf '  %-40s %5d KB -> %5d KB (-%d KB)\n' \
+    printf '  %-52s %5d KB -> %5d KB (-%d KB)\n' \
       "${f#"$BLOG_DIR"/}" "$((before / 1024))" "$((after / 1024))" "$(((before - after) / 1024))"
     after_total=$((after_total + after))
     changed=$((changed + 1))
   else
+    rm -f "$out"
     after_total=$((after_total + before))
   fi
-  rm -f "$tmp"
 done
 
 echo
-echo "$changed of ${#files[@]} image(s) optimized."
+echo "$changed of ${#files[@]} image(s) resized."
 echo "Total: $((before_total / 1024 / 1024)) MB -> $((after_total / 1024 / 1024)) MB"
+
+# ── Generate listing thumbnails for post covers + site logo ──
+
+covers() {
+  {
+    grep -h '^image:' "$BLOG_DIR"/_posts/*.md 2>/dev/null | sed 's/^image:[[:space:]]*//'
+    sed -n 's/^logo:[[:space:]]*//p' "$BLOG_DIR/_config.yml" 2>/dev/null
+  } | tr -d '"' | sed 's/[[:space:]]*$//' | grep '^/' | sort -u
+}
+
+echo
+echo "Thumbnails (${THUMB_EDGE}px):"
+thumb_count=0
+
+while IFS= read -r ref; do
+  src="$BLOG_DIR$ref"
+  [ -f "$src" ] || { echo "  missing: $ref" >&2; continue; }
+
+  fmt="$(format_of "$src")"
+  [ -n "$fmt" ] || continue
+
+  dir="$(dirname "$src")"
+  stem="$(basename "${src%.*}")"
+  thumb="$dir/${stem}-thumb.${fmt}"
+
+  out="$(mktemp).$fmt"
+  if ! resize_and_recompress "$src" "$out" "$fmt" "$THUMB_EDGE" 2>/dev/null; then
+    rm -f "$out"
+    echo "  skipped (decode failed): $ref" >&2
+    continue
+  fi
+
+  if [ -f "$thumb" ] && [ "$(size_of "$out")" -ge "$(size_of "$thumb")" ]; then
+    rm -f "$out"
+    continue
+  fi
+
+  mv "$out" "$thumb"
+  printf '  %-52s %5d KB\n' "${thumb#"$BLOG_DIR"/}" "$(($(size_of "$thumb") / 1024))"
+  thumb_count=$((thumb_count + 1))
+done < <(covers)
+
+echo "$thumb_count thumbnail(s) written."

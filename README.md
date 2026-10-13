@@ -27,8 +27,10 @@ bundle install
 ## Scripts
 
 - `scripts/generate-categories.sh` – create category pages for categories used in posts.
-- `scripts/optimize-images.sh` – resize and compress post images before committing
-  (default longest edge 1600px; images already within the limit are skipped).
+- `scripts/optimize-images.sh` – resize and compress post images before committing.
+  Also generates the `<name>-thumb` listing thumbnails referenced by post cards
+  (default longest edges: 1600px full-size, 720px thumbnails; images already
+  within the limit are skipped, so re-running is safe).
 
   ```sh
   ./scripts/optimize-images.sh                                # all of assets/images/posts

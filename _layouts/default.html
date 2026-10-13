@@ -15,7 +15,9 @@
 
     {%- include footer.html -%}
 
+    {%- if page.layout == 'search' -%}
     <script src="{{ "/assets/search.js" | relative_url }}"></script>
+    {%- endif -%}
   </body>
 
 </html>

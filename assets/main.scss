@@ -25,6 +25,16 @@ $on-laptop: 800px;
 
 /* ── Google Fonts (loaded in head.html) ── */
 
+/* ── Focus visibility (keyboard users) ── */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid $brand-color;
+  outline-offset: 2px;
+}
+
 /* ── Post image ── */
 
 .post-image {
@@ -873,5 +883,13 @@ mark {
   .search-result-excerpt { color: #8b949e; }
   .search-empty { color: #8b949e; }
   mark { background-color: rgba(#58a6ff, 0.2); }
+
+  /* Focus visibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  summary:focus-visible {
+    outline-color: #58a6ff;
+  }
 }
 

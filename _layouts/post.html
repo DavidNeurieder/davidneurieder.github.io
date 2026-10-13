@@ -19,7 +19,7 @@ layout: default
   </header>
 
   {% if page.image or site.logo %}
-  <img src="{{ page.image | default: site.logo | relative_url }}" alt="{{ page.title }}" class="post-image" />
+  <img src="{{ page.image | default: site.logo | relative_url }}" alt="" decoding="async" class="post-image" />
   {% endif %}
 
   <div class="post-content" itemprop="articleBody">
