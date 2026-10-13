@@ -1,18 +1,28 @@
-<div class="home-project-card">
-  <h3 class="home-project-name">
-    <a href="{{ project.repo }}" rel="noopener">{{ project.name }}</a>
-  </h3>
-  <p class="home-project-blurb">{{ project.blurb }}</p>
-  {% if project.posts %}
-  <p class="home-project-links">
-    {% for slug in project.posts %}
-      {% assign post = site.posts | where_exp: "p", "p.slug == slug" | first %}
-      {% if post %}
-      <a class="home-project-post" href="{{ post.url | relative_url }}">
-        {{ post.title | truncatewords: 8 }}
-      </a>
-      {% endif %}
-    {% endfor %}
-  </p>
-  {% endif %}
-</div>
+<article class="home-project-card">
+  {%- if project.image -%}
+  <img class="home-project-shot"
+       src="{{ project.image | relative_url }}"
+       {% if project.width and project.height %}width="{{ project.width }}" height="{{ project.height }}"{% endif %}
+       alt="{{ project.alt | default: '' | escape }}"
+       loading="lazy" decoding="async">
+  {%- endif -%}
+
+  <div class="home-project-body">
+    <h3 class="home-project-name">
+      <a href="{{ project.repo }}" rel="noopener">{{ project.name | escape }}</a>
+    </h3>
+    <p class="home-project-blurb">{{ project.blurb | escape }}</p>
+    {%- if project.posts -%}
+    <p class="home-project-links">
+      {%- for slug in project.posts -%}
+        {%- assign post = site.posts | where_exp: "p", "p.slug == slug" | first -%}
+        {%- if post -%}
+        <a class="home-project-post" href="{{ post.url | relative_url }}">
+          {{- post.title | truncatewords: 8 -}}
+        </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </p>
+    {%- endif -%}
+  </div>
+</article>

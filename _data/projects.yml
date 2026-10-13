@@ -1,18 +1,30 @@
 - name: Offline Currency Converter
   blurb: A 3 MB currency converter that works without internet, with cached and hardcoded fallback rates.
   repo: https://github.com/DavidNeurieder/offline-currency-converter
+  image: /assets/images/posts/currency-converter.png
+  alt: "Screenshot of the Offline Currency Converter app"
+  width: 697
+  height: 516
   posts:
     - offline-first-architecture-lessons-from-building-a-currency-converter
 
 - name: Causelog
   blurb: An engineering memory system for preserving decisions, experiments, and the reasoning behind them.
   repo: https://github.com/DavidNeurieder/causelog
+  image: /assets/images/posts/causelog.png
+  alt: "Screenshot of the Causelog interface"
+  width: 1920
+  height: 1043
   posts:
     - causelog-self-hosted-engineering-decision-memory
 
 - name: Activity Trace
   blurb: Search your Android notifications, screen content, and files locally.
   repo: https://github.com/DavidNeurieder/ActivityTrace
+  image: /assets/images/posts/stats_activity.png
+  alt: "Screenshot of the Activity Trace statistics screen"
+  width: 1920
+  height: 1080
   posts:
     - i-built-a-search-engine-for-my-notifications
     - fixing-exports-and-adding-statistics-to-activity-trace
@@ -21,6 +33,10 @@
 - name: Forgepost
   blurb: A self-hosted blogging platform that lets you experiment with your own content.
   repo: https://github.com/DavidNeurieder/Forgepost
+  image: /assets/images/posts/forgepost1.png
+  alt: "Screenshot of the Forgepost blogging dashboard"
+  width: 1920
+  height: 1080
   posts:
     - forgepost-self-hosted-block-experiments
     - forgepost-0.2.0-video-embeds-zipped-backups-and-an-attribution-firewall
@@ -28,6 +44,10 @@
 - name: LibreCrate
   blurb: An encrypted document vault designed to work across devices.
   repo: https://github.com/DavidNeurieder/LibreCrate
+  image: /assets/images/posts/librecrate.png
+  alt: "Screenshot of the LibreCrate document vault"
+  width: 1920
+  height: 1080
   posts:
     - librecrate-encrypted-document-vault
     - librecrate-is-on-fdroid

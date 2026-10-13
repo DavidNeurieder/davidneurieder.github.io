@@ -397,15 +397,34 @@ mark {
 
 .home-project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .home-project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   border: 1px solid $grey-color-light;
   border-radius: 10px;
-  padding: 20px;
+  overflow: hidden;
   background: $background-color;
+}
+
+.home-project-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid $grey-color-light;
+  background-color: #f3f4f6;
+}
+
+.home-project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 20px 20px;
 }
 
 .home-project-name {
@@ -428,10 +447,17 @@ mark {
 }
 
 .home-project-links {
-  margin: 0;
+  margin: auto 0 0;
+  padding-top: 12px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+@media (max-width: $on-palm) {
+  .home-project-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .home-project-post {
@@ -453,6 +479,11 @@ mark {
   .home-project-card {
     border-color: #30363d;
     background: #0d1117;
+  }
+
+  .home-project-shot {
+    border-bottom-color: #30363d;
+    background-color: #161b22;
   }
 
   .home-project-name a {

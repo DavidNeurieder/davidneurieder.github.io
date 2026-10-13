@@ -7,7 +7,7 @@ layout: default
   <h2 class="home-section-title">Currently building</h2>
   <div class="home-project-grid">
     {%- for project in site.data.projects -%}
-      {%- include project-card.html -%}
+      {%- include project-card.html project=project -%}
     {%- endfor -%}
   </div>
 </section>
